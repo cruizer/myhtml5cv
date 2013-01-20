@@ -1,1 +1,55 @@
-@import "compass_twitter_bootstrap";
+@import "compass_twitter_bootstrap_awesome";
+
+header {
+	background: black;
+	color: white;
+	height: 160px;
+	padding:10px;
+}
+
+* { @include box-sizing(border-box); }
+
+.navi-circle {
+	width: 50px;
+	height: 50px;
+	background-color: green;
+	@include border-radius(25px);
+	margin: 10px auto;
+	i {
+		margin: 0 5px;
+		width: 40px;
+		height: 40px;
+	}
+}
+
+.cv-objectives {
+	@include box-shadow(black 0px 0px 12px);
+	h2 {
+		text-align: center;
+	}
+}
+.cv-objectives-detailed {
+	overflow-x: auto;
+}
+
+.obj-item-wrapper {
+	width: 270%;
+}
+
+/* Temporal class for testing*/
+ .showme {
+ 	width: 1px;
+ 	height: 1px;
+ 	margin-left: -2px;
+ }
+.obj-item {
+	float: left;
+	width: 29.629%;
+	height: 80px;
+	margin: 0 1.851%;
+	border: 1px solid black;
+}
+
+.arrow-up {
+	text-align: center;
+}

@@ -35,7 +35,7 @@ module.exports = function( grunt ) {
           css_dir: 'temp/styles',
           sass_dir: 'app/styles',
           images_dir: 'app/images',
-          javascripts_dir: 'temp/scripts',
+          relative_assets: true, // tkalman - added this line to overcome the problem with serving Font Awesome font files
           force: true
         }
       }
