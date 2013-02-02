@@ -17,24 +17,24 @@ function Animation(type, duration, element) {
 	this.animationStatus = 0;
 
 	// This *configure* method should be called to set up the anim context before *animate* is called
-	this.configure = function() {
+	this.configure = function(params) {
 		// Determine from what point (value) we begin the animation from
 		that.startPoint = that.element.scrollLeft;
 		// If we animate the scrollLeft property calculate the target value
 		if (that.type == 'scrollLeft') {
-			that.target = that.calculateScrollTarget();
+			that.target = that.calculateScrollTarget(params.scroll);
 		}
 	};
 	// This helper method calculates the target scroll value we snap to based on the current position
-	this.calculateScrollTarget = function() {
-		if (that.element.scrollLeft < 234 ) {
+	this.calculateScrollTarget = function(params) {
+		if (that.element.scrollLeft < params.midBreak ) {
 			return 0;
 		}
-		else if (that.element.scrollLeft >= 234 && that.element.scrollLeft <= 744) {
-			return 448;
+		else if (that.element.scrollLeft >= params.midBreak && that.element.scrollLeft <= params.rightBreak) {
+			return params.midScroll;
 		}
-		else if (that.element.scrollLeft > 600) {
-			return 868;
+		else if (that.element.scrollLeft > params.rightBreak) {
+			return params.rightScroll;
 		}
 	};
 	// The actual animaton is done here
@@ -80,6 +80,27 @@ function Animation(type, duration, element) {
 
 // DOM manipulation
 document.addEventListener("DOMContentLoaded", function() {
+
+			var leftItemLeftMargin = window.getComputedStyle(document.getElementById("left-item"), null).getPropertyValue('margin-left').match(/\d+\.\d+/);
+			var leftItemWidth = window.getComputedStyle(document.getElementById("left-item"), null).getPropertyValue('width').match(/\d+\.\d+/);
+			
+			var midScrollPoint = Math.ceil(+leftItemLeftMargin + +leftItemWidth);
+			var midBreakPoint = Math.ceil(midScrollPoint/2);
+
+			var rightScrollPoint = Math.ceil(window.getComputedStyle(document.getElementsByClassName("obj-item-wrapper")[0], null).getPropertyValue('width').match(/\d+\.\d+/) - window.getComputedStyle(document.getElementsByClassName("cv-objectives-detailed")[0], null).getPropertyValue('width').match(/\d+\.\d+/));
+			var rightBreakPoint = Math.ceil(rightScrollPoint - midScrollPoint);
+
+
+			var animConfig = {
+				scroll: {
+					midScroll: midScrollPoint,
+					midBreak: midBreakPoint,
+					rightScroll: rightScrollPoint,
+					rightBreak: rightBreakPoint
+				}
+			};
+
+			// This scrolls the "anchor" element into view to center the horizontal scroll
             var showmeScroll = document.getElementsByClassName("showme");
             showmeScroll[0].scrollIntoView();
 
@@ -88,12 +109,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
             var anim = new Animation('scrollLeft', 300, elementToAnimate);
 
-
+            
 			var scrollFinished = function() {
-				anim.configure();
+				anim.configure(animConfig);
 				anim.animate();
 			}
-
+			
+			
 			var elementScroll = function() {
 				if (anim.animationStatus == 0) {
 					//console.log("scroll, scrollLeftPosi: "+elementToAnimate.scrollLeft);
