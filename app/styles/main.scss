@@ -2,13 +2,18 @@
 
 /* blues */
 $basecolor: #439FB5;
-$lightblue: #428CCC;
+$lightblue: #2C6675;
+$violet: #406DE8;
 
 $pressedtext: #142F36;
 $pressedtexthighlight: #4CB2CC;
 
 /* browns */
 $midbrown: #428BCC;
+
+/* redish */
+$orange: #E86040;
+$tan: #BE8F77;
 
 /* Greyscale */
 $textcolor: #333333;
@@ -44,7 +49,7 @@ header {
 .navi-circle {
 	width: 50px;
 	height: 50px;
-	background-color: $lightblue;
+	background-color: $basecolor;
 	color: white;
 	@include border-radius(25px);
 	margin: 10px auto;
@@ -62,7 +67,16 @@ header {
 	h2 {
 		text-align: center;
 		font-weight: 200;
+		color: $basecolor;
 	}
+}
+
+.timeline-circle {
+	position: absolute;
+	height: 20px;
+	width: 20px;
+	border-radius: 10px;
+	margin: -10px 0 0 -16px;
 }
 
 .intro {
@@ -73,11 +87,11 @@ header {
 	@include text-shadow(0px 2px 0px $pressedtexthighlight);
 }
 
-.cv-objectives {
+/*.cv-objectives {
 	h2 {
-		color: $lightblue;
+		color: $basecolor;
 	}
-}
+}*/
 
 .cv-objectives-intro {
 	padding:20px;
@@ -104,12 +118,61 @@ header {
 	width: 29.629%;
 	height: 280px;
 	margin: 0 1.851%;
-	border-left: 3px solid $lightblue;
-	border-right: 3px solid $lightblue;
-	border-radius: 20px;
 	padding: 5px;
+	h3 {
+		color: $basecolor;
+		font-weight: 300;
+		font-style: italic;
+		font-size: 25px;
+	}
+	p {
+		font-size: 16px;
+	}
 }
 
 .arrow-up {
 	text-align: center;
+}
+
+.experience-job {
+	padding: 5px;
+	margin: 10px 0 10px 0;
+	h3 {
+		font-weight: 300;
+		font-size: 25px;
+	}
+	p {
+		margin-bottom: 20px;
+	}
+}
+.experience-first {
+	border-left: 4px solid $orange;
+	.timeline-circle {
+		background-color: $orange;
+		p {
+			margin-left: 25px;
+			color: $orange;
+		}
+	}
+}
+
+.experience-second {
+	border-left: 4px solid $tan;
+	.timeline-circle {
+		background-color: $tan;
+		p {
+			margin-left: 25px;
+			color: $tan;
+		}
+	}
+}
+.experience-third {
+	border-left: 4px solid $violet;
+	.timeline-circle {
+		background-color: $violet;
+		p {
+			margin-left: 25px;
+			color: $violet;
+		}
+	}
 }
