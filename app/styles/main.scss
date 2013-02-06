@@ -1,10 +1,42 @@
 @import "compass_twitter_bootstrap_awesome";
 
+/* blues */
+$basecolor: #439FB5;
+$lightblue: #428CCC;
+
+$pressedtext: #142F36;
+$pressedtexthighlight: #4CB2CC;
+
+/* browns */
+$midbrown: #428BCC;
+
+/* Greyscale */
+$textcolor: #333333;
+$lightgrey: #b5b5b5;
+
+body {
+	background-image: url("../images/45degreee_fabric_blue.png");
+	color: $textcolor;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 300;
+	line-height: 1.3;
+}
+
 header {
-	background: black;
+	background-color: $basecolor;
 	color: white;
-	height: 160px;
+	height: 180px;
 	padding:10px;
+	@include box-shadow(black 0px 0px 12px);
+	h1 {	
+		font-weight: 200;
+		font-size: 40px;
+	}
+	h2 {
+		color: $lightgrey;
+		font-weight: 300;
+		font-size: 25x;
+	}
 }
 
 * { @include box-sizing(border-box); }
@@ -12,7 +44,8 @@ header {
 .navi-circle {
 	width: 50px;
 	height: 50px;
-	background-color: green;
+	background-color: $lightblue;
+	color: white;
 	@include border-radius(25px);
 	margin: 10px auto;
 	i {
@@ -22,14 +55,37 @@ header {
 	}
 }
 
-.cv-objectives {
+.panel {
+	background-color: white;
+	margin-top: 30px;
 	@include box-shadow(black 0px 0px 12px);
 	h2 {
 		text-align: center;
+		font-weight: 200;
 	}
 }
+
+.intro {
+	color: $pressedtext;
+	padding: 20px;
+	font-size: 33px;
+	line-height: 1.4;
+	@include text-shadow(0px 2px 0px $pressedtexthighlight);
+}
+
+.cv-objectives {
+	h2 {
+		color: $lightblue;
+	}
+}
+
+.cv-objectives-intro {
+	padding:20px;
+	font-size: 20px;
+	}
 .cv-objectives-detailed {
 	overflow-x: auto;
+	margin-bottom: 10px;
 }
 
 .obj-item-wrapper {
@@ -46,9 +102,12 @@ header {
 .obj-item {
 	float: left;
 	width: 29.629%;
-	height: 80px;
+	height: 280px;
 	margin: 0 1.851%;
-	border: 1px solid black;
+	border-left: 3px solid $lightblue;
+	border-right: 3px solid $lightblue;
+	border-radius: 20px;
+	padding: 5px;
 }
 
 .arrow-up {

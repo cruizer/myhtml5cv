@@ -77,17 +77,22 @@ function Animation(type, duration, element) {
 		that.element.scrollLeft =  that.startPoint + ( that.target - that.startPoint ) * that.deltaValue;
 	};
 };
-// Helper function to get computed style property values for elements
+// Helper function to get computed style property values for elements. Calss/id notation is similar to JQuery (#) id, (.) class
 function getElementStyle(element, cssProperty) {
 	var id, className;
 
+	// We search for a valid CSS id string in the  element string
 	if (element.search(/^#[A-Za-z\-\d]+$/) === 0) {
+		// We remove the # notation
 		id = element.substr(1);
+		// We get the DOM element and search for the CSS property and return the value (we just extract the number)
 		return window.getComputedStyle(document.getElementById(id), null).getPropertyValue(cssProperty).match(/\d+\.\d+/);
 	}
 
 	if (element.search(/^\.[A-Za-z\-\d]+$/) === 0) {
+		// We remove the . notation
 		className = element.substr(1);
+		// We get the DOM element (ATTENTION: only the first element found) 
 		return window.getComputedStyle(document.getElementsByClassName(className)[0], null).getPropertyValue(cssProperty).match(/\d+\.\d+/);
 	}
 };
@@ -95,6 +100,7 @@ function getElementStyle(element, cssProperty) {
 // DOM manipulation
 document.addEventListener("DOMContentLoaded", function() {
 
+			// 
 			var leftItemLeftMargin = Math.ceil(getElementStyle('#left-item', 'margin-left'));
 			var leftItemWidth = Math.ceil(getElementStyle('#left-item', 'width'));
 			
@@ -103,8 +109,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 			var rightScrollPoint = Math.ceil(getElementStyle('.obj-item-wrapper', 'width') - getElementStyle('.cv-objectives-detailed', 'width'));
 			var rightBreakPoint = Math.ceil((rightScrollPoint + midScrollPoint)/2);
-			console.log(rightBreakPoint);
-
 
 			var animConfig = {
 				scroll: {
