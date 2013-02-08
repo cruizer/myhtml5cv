@@ -5,6 +5,7 @@ $basecolor: #439FB5;
 $lightblue: #2C6675;
 $violet: #406DE8;
 
+
 $pressedtext: #142F36;
 $pressedtexthighlight: #4CB2CC;
 
@@ -14,10 +15,18 @@ $midbrown: #428BCC;
 /* redish */
 $orange: #E86040;
 $tan: #BE8F77;
+$pink: #C15C7E;
 
 /* Greyscale */
 $textcolor: #333333;
 $lightgrey: #b5b5b5;
+
+/* Greens */
+$turqoise: #3FC295;
+$saturated-green: #39CF47;
+
+/*  Yellow */
+$yellow: #dfe95f;
 
 body {
 	background-image: url("../images/45degreee_fabric_blue.png");
@@ -28,7 +37,7 @@ body {
 }
 
 header {
-	background-color: $basecolor;
+	background-color: rgba(68, 158, 181, 0.4);
 	color: white;
 	height: 180px;
 	padding:10px;
@@ -39,7 +48,7 @@ header {
 	}
 	h2 {
 		color: $lightgrey;
-		font-weight: 300;
+		font-weight: 600;
 		font-size: 25x;
 	}
 }
@@ -47,16 +56,20 @@ header {
 * { @include box-sizing(border-box); }
 
 .navi-circle {
-	width: 50px;
-	height: 50px;
-	background-color: $basecolor;
+	width: 60px;
+	height: 60px;
+	background-color: $pressedtexthighlight;
 	color: white;
-	@include border-radius(25px);
+	@include border-radius(30px);
 	margin: 10px auto;
+	border:	5px solid $basecolor;
+	@include box-shadow($pressedtext 0px 0px 7px inset);
 	i {
 		margin: 0 5px;
 		width: 40px;
 		height: 40px;
+		color: $pressedtext;
+		@include text-shadow(0px 2px 0px $pressedtexthighlight);
 	}
 }
 
@@ -77,6 +90,31 @@ header {
 	width: 20px;
 	border-radius: 10px;
 	margin: -10px 0 0 -16px;
+}
+
+.skill-level {
+	width: 180px;
+	margin: 0 auto;
+	height: 40px;
+	div {
+		height: 40px;
+		width: 40px;
+		float: left;
+		@include border-radius(20px);
+		margin-right: 10px;
+		margin-left: 10px;
+		color: $pressedtext;
+	}
+	i {
+		margin-left: 12px;
+		line-height: 1.5;
+	}
+	.skill-level-yes {
+		background-color: $basecolor;
+	}
+	.skill-level-no {
+		background-color: $orange;
+	}
 }
 
 .intro {
@@ -134,9 +172,9 @@ header {
 	text-align: center;
 }
 
-.experience-job {
+.experience-edu-item {
 	padding: 5px;
-	margin: 10px 0 10px 0;
+	margin: 20px 0 20px 0;
 	h3 {
 		font-weight: 300;
 		font-size: 25px;
@@ -174,5 +212,38 @@ header {
 			margin-left: 25px;
 			color: $violet;
 		}
+	}
+}
+
+.edu-first {
+	border-left: 4px solid $pink;
+	.timeline-circle {
+		background-color: $pink;
+		p {
+			margin-left: 25px;
+			color: $pink;
+		}
+	}
+}
+
+.edu-second {
+	border-left: 4px solid $turqoise;
+	.timeline-circle {
+		background-color: $turqoise;
+		p {
+			margin-left: 25px;
+			color: $turqoise;
+		}
+	}
+}
+.skill-item {
+	@include box-shadow($pressedtext 0px 0px 7px);
+	padding: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	.skill-logo {
+		width: 150px;
+		height: 84px;
+		margin: 0 auto;
 	}
 }
