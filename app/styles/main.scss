@@ -106,7 +106,7 @@ header {
 		color: $pressedtext;
 	}
 	i {
-		margin-left: 12px;
+		/*margin-left: 12px;*/
 		line-height: 1.5;
 	}
 	.skill-level-yes {
@@ -116,7 +116,36 @@ header {
 		background-color: $orange;
 	}
 }
-
+/* CSS3 rules for flipcard effect */
+.flipcontext {
+    -webkit-perspective: 800px;
+    /*position: relative;*/
+}
+.card {
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: all 0.5s;
+}
+.front {
+    position: absolute;
+    /*background-color: red;*/
+    -webkit-backface-visibility: hidden;
+    padding: 10px;
+    left: 30px;
+    right: 30px;
+    text-align: center;
+}
+.back {
+    position: absolute;
+    /*background-color: green;*/
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: rotateY(180deg);
+    padding: 10px;
+}
+.card:hover {
+    -webkit-transform: rotateY(180deg);
+    @include box-shadow(grey 0px 0px 20px);
+}
+/* End of rule for flipcard effect */
 .intro {
 	color: $pressedtext;
 	padding: 20px;
@@ -237,13 +266,13 @@ header {
 	}
 }
 .skill-item {
-	@include box-shadow($pressedtext 0px 0px 7px);
-	padding: 10px;
+	@include box-shadow(grey 0px 0px 7px);
 	margin-top: 20px;
 	margin-bottom: 20px;
-	.skill-logo {
+	height: 300px;
+	.skill-logo-jboss {
 		width: 150px;
-		height: 84px;
+		height: 150px;
 		margin: 0 auto;
 	}
 }
