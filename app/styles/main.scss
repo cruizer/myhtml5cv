@@ -133,6 +133,11 @@ header {
     left: 30px;
     right: 30px;
     text-align: center;
+    h4 {
+    	height: 50px;
+    	font-weight: 300;
+    	font-size: 20px;
+    }
 }
 .back {
     position: absolute;
@@ -270,9 +275,47 @@ header {
 	margin-top: 20px;
 	margin-bottom: 20px;
 	height: 300px;
-	.skill-logo-jboss {
+	.skill-logo {
 		width: 150px;
 		height: 150px;
 		margin: 0 auto;
 	}
+	.skill-logo-jboss {
+		padding-top: 19%;
+	}
+	.skill-logo-html5 {
+		padding-top: 19%;
+	}
+	.skill-logo-redhat {
+		padding-top: 26%;
+	}
+	.skill-logo-avaya {
+		padding-top: 32%;
+	}
+	.skill-logo-sass {
+		padding-top: 32%;
+	}
+	.skill-logo-yeoman {
+		padding-top: 14%;
+	}
+	.skill-logo-jquery {
+		padding-top: 34%;
+	}
+	.skill-logo-modernizr {
+		padding-top: 35%;
+	}
+	.skill-logo-php {
+		padding-top: 20%;
+	}
+	.skill-logo-apache {
+		padding-top: 25%;
+	}
+	.skill-logo-mysql {
+		padding-top: 18%;
+	}
+}
+.language-item {
+	text-align: center;
+	display: inline;
+	vertical-align: middle;
 }
